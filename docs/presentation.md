@@ -29,13 +29,13 @@ style: |
   }
 
   h1, h2 {
-    font-family: Bungee;
+    font-family: Bungee, Arial, sans-serif;
     text-transform: uppercase;
     text-align: center;
   }
 
   h3, h4, h5, h6 {
-    font-family: Angkor;
+    font-family: Angkor, Arial, sans-serif;
     text-transform: capitalize;
   }
 
@@ -94,6 +94,7 @@ style: |
     justify-content: center;
     display: block;
     margin: 0 auto;
+    font-size: .95rem;
   }
 ---
 
@@ -144,84 +145,156 @@ style: |
 
 ### Expected returns
 
+|                              | Scenario 1 (Target)        | Scenario 2       |
+| ---------------------------- | -------------------------- | ---------------- |
+| Value increase (base = 20€)  | **22.5€** (_+15%_)         | **25€** (_+25%_) |
+| Margin increase (base = 20%) | **22%** (_+10%_)           | **23%** (_+15%_) |
+| **Returns**                  | -------------------------- | ---------------- |
+| Monthly Profit after 1 year  | **18K€**                   | **30K€**         |
+| ROI after 1 year             | **2%**                     | **70%**          |
+| Time to profitability        | **1 year**                 | **7 months**     |
+
+---
+
+### RUN Treasury
+
+![center-img h:550px](img/RUN%20Treasury.svg "RNU Treasury")
+
 ---
 
 ### Human resources
+
+| **Role** (ADR)                     | **BUILD** (4 months) | **RUN** (1 year)    |
+| ---------------------------------- | -------------------- | ------------------- |
+| _Product Manager_ (450€/d)         | _5 K€_ (11 d)        | _2.7 K€_ (6 d)      |
+| _Product Owner_ (350€/d)           | _9.8 K€_ (28 d)      | _2.1 K€_ (6 d)      |
+| _SCRUM Master_ (300€/d)            | _10.2 K€_ (34 d)     | _3.6 K€_ (12 d)     |
+| _Frontend developer_ (300€/d)      | _18.3 K€_ (61 d)     | _3.6 K€_ (12 d)     |
+| _Backend developer_ (350€/d)       | _21.4 K€_ (61 d)     | _4.2 K€_ (12 d)     |
+| _AI / ML / Data Engineer_ (400€/d) | _22.8 K€_ (57 d)     | _19.2 K€_ (48 d)    |
+| _QA Engineer_ (300€/d)             | _5.7 K€_ (19 d)      | _3.6 K€_ (12 d)     |
+| _SRE_ (400€/d)                     | _4.4 K€_ (11 d)      | _9.6 K€_ (24 d)     |
+| **TOTAL**                          | **97.5 K€** (282 d)  | **48.6 K€** (132 d) |
 
 ---
 
 ### Technical resources
 
----
-
-### Financial resources
-
----
-
-### Agile development
-
----
-
----
-
-# Stop
+| **Articles detection** + **Recommender** | **BUILD** (4 months) | **RUN** (1 year) |
+| ---------------------------------------- | -------------------- | ---------------- |
+| _Blob Storage_                           | 2 €                  | 780 €            |
+| _Function_                               | 0 €                  | 0 €              |
+| _Machine Learning (GPU)_                 | 1.4 K€               | 8 K€             |
+| _Machine Learning_                       | 310 €                | 10.3 K€          |
+| _NoSQL Database_                         | 2 €                  | 780 €            |
+| **TOTAL**                                | **1.7 K€**           | **20 K€**        |
 
 ---
 
-### Curent MVP System Architecture
+### BUILD Treasury
 
-![center-img h:550px](img/architecture.drawio.png "Current MVP architecture")
-
----
-
-### Resources inventory
-
-| **LUIS**                                                                                                                                                                                                                                    | **Chatbot**                                                                                                                                                                                                                            | **Monitoring**                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Language understanding model](https://www.luis.ai/applications)                                                                                                                                                                            | [Bot service](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10_Bot/providers/Microsoft.BotService/botServices/fly_me/overview)             | [Application Insights](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10_Bot/providers/microsoft.insights/components/ocp10-appinsights/overview)                                                                                               |
-| [Authoring resource](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10/providers/Microsoft.CognitiveServices/accounts/ocp10-luis-auth/overview)  | [App Service Plan](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10_Bot/providers/Microsoft.Web/serverFarms/ocp10-bot-plan/webHostingPlan) | [Alert Rule](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/UpdateLogSearchV2AlertRuleViewModel/alertId/%2Fsubscriptions%2Fda2e4791-6dd1-422b-848a-a961cef6ab89%2FresourceGroups%2FOC_P10_Bot%2Fproviders%2Fmicrosoft.insights%2Fscheduledqueryrules%2FWARNING%20-%20More%20than%205%20Booking%20Refused%20last%205%20minutes) |
-| [Prediction resource](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10/providers/Microsoft.CognitiveServices/accounts/ocp10-luis-pred/overview) | [App Service](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/resource/subscriptions/da2e4791-6dd1-422b-848a-a961cef6ab89/resourceGroups/OC_P10_Bot/providers/Microsoft.Web/sites/ocp10-bot-webapp/appServices)             | [Monitoring Dashboard](https://portal.azure.com/#@clementfleurypm.onmicrosoft.com/dashboard/private/41e0e40e-2469-4ecf-91c6-d576b3787015)                                                                                                                                                                                                 |
+![center-img h:550px](img/BUILD%20Treasury.svg "BUILD Treasury")
 
 ---
 
-### Demo
+### Being Agile (Manifesto)
 
-|                     **Demo**                     |                  **Monitoring**                  |
-| :----------------------------------------------: | :----------------------------------------------: |
-| ![center-img h:475px](img/screencast.gif "Demo") | ![center-img h:475px](img/monitoring.png "Demo") |
+![center-img h:550px](img/agilevaluesprinciples.png "Agile values and principles")
 
 ---
 
-### Target performance management policy
+### Doing Agile (SCRUM)
 
-In order to achieve the target performance, the following policy must be implemented :
-
-- **store** each dialogs and inferred _intents_ and _entities_ in a _database_
-- **transform and load** (ETL) the raw data in a _datawarehouse_ in a _format compatible with the LUIS service_
-- daily **re-train** the _language understanding model_ with the new _intents_ and _entities_ of the **successful** bookings
+![center-img h:550px](img/Scrum-Framework_en.webp "Scrum-Framework")
 
 ---
 
-### Target production architecture
+### Product Backlog : MVP
 
-![center-img h:550px](img/target-architecture.drawio.png "Target production architecture")
+| ID  | Pred. | Milestone | Title                    | Value           | Cost   | Priority |
+| :-: | :---: | :-------: | ------------------------ | --------------- | ------ | :------: |
+|  1  |       |    MVP    | Update privacy notice    | 8 - Must have   | 1 - S  |    8     |
+|  2  |       |    MVP    | Update privacy settings  | 8 - Must have   | 2 - M  |    4     |
+|  3  |       |    MVP    | Update profile settings  | 2 - Could have  | 4 - L  |   0.5    |
+|  4  |       |    MVP    | Submit a photo           | 8 - Must have   | 8 - XL |    1     |
+|  5  |   4   |    MVP    | Delete a photo           | 4 - Should have | 4 - L  |    1     |
+|  6  |  3;4  |    MVP    | Personal recommendations | 8 - Must have   | 8 - XL |    1     |
 
 ---
 
-### Next steps
+### Product Backlog : V1
 
-- **integrate** the bot with multiple _Channels_ (Website, Discord, Teams, Slack, ...)
-- **improve** the bot capacity to handle more _Intentions_ and _Entities_
-- **connect** the bot to an actual _Flight booking_ system
-- **monitor** more precisely the bot's performance : _errors_, _performance_, _availability_, ...
-- **implement** the model continuous _training_ and _deployment_
+| ID  | Pred. | Milestone | Title                          | Value           | Cost  | Priority |
+| :-: | :---: | :-------: | ------------------------------ | --------------- | ----- | :------: |
+|  7  |   4   |    V1     | Create a style                 | 4 - Should have | 4 - L |    1     |
+|  8  |   7   |    V1     | List my styles                 | 4 - Should have | 2 - M |    2     |
+|  9  |   7   |    V1     | Edit a style                   | 1 - Won't have  | 1 - S |    1     |
+| 10  |   7   |    V1     | Delete a style                 | 2 - Could have  | 2 - M |    1     |
+| 11  |   7   |    V1     | Manage a style's photos        | 4 - Should have | 2 - M |    2     |
+| 12  |  7;6  |    V1     | Personal style recommendations | 4 - Should have | 2 - M |    2     |
+
+---
+
+### Project Risks
+
+![center-img](img/Risks.png "Project Risks")
+
+---
+
+### Risks prevention : Action Plan
+
+|  Status  | Owner             | Action                                       |
+| :------: | ----------------- | -------------------------------------------- |
+| **TODO** | _AI Engineer_     | proof of concept during first Sprint         |
+| **TODO** | _AI Engineer_     | recommendation system evaluation metric      |
+| **TODO** | _Product Manager_ | book required resources in advance           |
+| **TODO** | _Product Owner_   | user research during first Sprint            |
+| **TODO** | _Tech Lead_       | performance testing                          |
+| **TODO** | _Product Manager_ | identify DPO and organisation representative |
+
+---
+
+### Legal Obligation : GDPR
+
+![center-img h:550px](img/GDPR-Overview-Infographic.png "GDPR")
+
+---
+
+### Privacy Impact Assessment (PIA)
+
+![center-img h:550px](img/risksOverview.png "Privacy Impact Assessment")
+
+---
+
+### Ethical Consideration : Responsible AI
+
+![center-img h:550px](img/Responsible-AI.png "Responsible AI")
+
+---
+
+### Executive Summary
+
+- **User problems**
+
+> "_Searching_ for articles is **tedious** and _filtering_ excludes articles I **would have bought**."
+
+> "I end-up _returning_ many articles because they **don't match my style**."
+
+- **Solution** : _recommendations_ based on _Profile informations_ and _Personal Style photos_
+
+| **BUILD**                             | **RUN**                          |
+| ------------------------------------- | -------------------------------- |
+| Budget : _100K€_                      | Costs : _6K€ / month_            |
+| Duration : _4 months_                 | Returns : _15K€ / month_         |
+| Main risk : _ML models accuracy_      | Time to profitability : _1 year_ |
+| Considerations : _Ethics (AI biases)_ | Obligations : _Legal (RGPD)_     |
 
 ---
 
 <!-- _class:  lead -->
 
-# Fly Me
+# Fashion-Insta
 
-## Flights booking chatbot
+![center-img h:200px](https://user.oc-static.com/upload/2019/10/24/15719219304432_Capture%20d%E2%80%99e%CC%81cran%202019-10-24%20a%CC%80%2014.56.02.png "Fashion-Insta")
 
-[![center-img h:120px](img/GitHub-Mark-120px-plus.png "GitHub")](https://github.com/fleuryc/OC_AI-Engineer_P10_Flights-booking-chatbot "Fly Me : flights booking chatbot")
+## Personal Style<br/>Articles Recommender
